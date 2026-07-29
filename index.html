@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasticceria Gelsomino - Dolcezza Artigianale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4A2C11;
+            --primary-light: #6C421E;
+            --accent: #C8963E;
+            --accent-hover: #B07E2A;
+            --bg-cream: #FAF6F0;
+            --bg-card: #FFFFFF;
+            --text-main: #2C221E;
+            --text-muted: #6B5E57;
+            --whatsapp-color: #25D366;
+            --border-color: #E8DFD5;
+            --shadow-sm: 0 4px 12px rgba(74, 44, 17, 0.05);
+            --shadow-lg: 0 12px 32px rgba(74, 44, 17, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(250, 246, 240, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--accent);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-header:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(200, 150, 62, 0.15);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 46px;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--accent);
+            color: #fff;
+            padding: 15px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 6px 20px rgba(200, 150, 62, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(200, 150, 62, 0.4);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Specialità Section */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--primary);
+        }
+
+        .specialta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card-spec {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card-spec:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 22px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card-text {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Instagram Section */
+        .instagram-bg {
+            background-color: #F4ECE1;
+        }
+
+        .insta-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .insta-profile-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            background-color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .insta-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            background-color: #ddd;
+        }
+
+        .insta-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .insta-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .insta-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(74, 44, 17, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: #fff;
+            font-weight: 600;
+            gap: 15px;
+        }
+
+        .insta-card:hover .insta-overlay {
+            opacity: 1;
+        }
+
+        /* Info & Contacts Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+        }
+
+        .info-box {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-title {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .orari-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .orari-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 15px;
+        }
+
+        .orari-list li strong {
+            color: var(--primary);
+        }
+
+        .contact-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(200, 150, 62, 0.15);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 260px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 2000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-icon {
+            font-size: 22px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: #E8DFD5;
+            padding: 40px 0 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-grid, .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 34px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span class="logo-icon">🌸</span>
+                <span class="logo-text">Pasticceria Gelsomino</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#specialita">Specialità</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#contatti">Dove Siamo & Orari</a></li>
+            </ul>
+            <a href="#contatti" class="btn-header">Contattaci</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge">Dolcezza Artigianale dal 1968</span>
+                <h1 class="hero-title">Pasticceria Gelsomino: Tradizione & Qualità</h1>
+                <p class="hero-desc">Dalla classica pasticceria fresca ai dolci delle festività, realizziamo ogni creazione nel nostro laboratorio artigianale con ingredienti freschissimi di altissima qualità.</p>
+                <a href="#specialita" class="btn-primary">
+                    <span>Scopri le nostre specialità</span>
+                    <span>↓</span>
+                </a>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Millefoglie artigianale" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Specialità -->
+    <section id="specialita" class="section-padding" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">I Nostri Fiori all'Occhiello</p>
+                <h2 class="section-title">Le Nostre Specialità Artigianali</h2>
+            </div>
+
+            <div class="specialta-grid">
+                <div class="card-spec">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80" alt="Torte su Ordinazione" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Torte su Ordinazione</h3>
+                        <p class="card-text">Millefoglie classiche, torte moderne e creazioni personalizzate per compleanni, cerimonie ed eventi speciali.</p>
+                    </div>
+                </div>
+
+                <div class="card-spec">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Pasticceria Fresca" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Pasticceria Mignon</h3>
+                        <p class="card-text">Bignè alla crema, cannoncini sfogliati croccanti, tartellette con frutta di stagione e babà al rum.</p>
+                    </div>
+                </div>
+
+                <div class="card-spec">
+                    <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80" alt="Cioccolateria" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Cioccolateria & Praline</h3>
+                        <p class="card-text">Selezione di praline artigianali fatte a mano, tavolette monorigina e lavorazioni speciali in puro cioccolato.</p>
+                    </div>
+                </div>
+
+                <div class="card-spec">
+                    <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80" alt="Dolci della Tradizione" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Dolci della Tradizione</h3>
+                        <p class="card-text">Specialità locali alla mandorla, biscotti da te e le grandi lievitazioni stagionali (Panettoni e Colombe).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Feed Instagram -->
+    <section id="instagram" class="section-padding instagram-bg">
+        <div class="container">
+            <div class="insta-header">
+                <div>
+                    <p class="section-subtitle">Social Feed Live</p>
+                    <h2 class="section-title">I Nostri Ultimi Post su Instagram</h2>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="insta-profile-link">
+                    <span>📷 @pasticceriagelsomino</span>
+                    <span>→</span>
+                </a>
+            </div>
+
+            <div class="insta-grid">
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=500&q=80" alt="Post Instagram 1">
+                    <div class="insta-overlay">❤️ 124 💬 8</div>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80" alt="Post Instagram 2">
+                    <div class="insta-overlay">❤️ 210 💬 14</div>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=500&q=80" alt="Post Instagram 3">
+                    <div class="insta-overlay">❤️ 185 💬 11</div>
+                </div>
+                <div class="insta-card">
+                    <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=500&q=80" alt="Post Instagram 4">
+                    <div class="insta-overlay">❤️ 340 💬 22</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info, Orari & Mappa -->
+    <section id="contatti" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Vieni a Trovarci</p>
+                <h2 class="section-title">Orari di Apertura & Posizione</h2>
+            </div>
+
+            <div class="info-grid">
+                <!-- Box Orari e Mappa -->
+                <div class="info-box">
+                    <h3 class="info-title">Orari di Apertura</h3>
+                    <ul class="orari-list">
+                        <li><strong>Lunedì - Sabato:</strong> <span>07:30 – 20:00</span></li>
+                        <li><strong>Domenica & Festivi:</strong> <span>07:00 – 14:00</span></li>
+                        <li><strong>Giorno di chiusura:</strong> <span>Martedì pomeriggio</span></li>
+                    </ul>
+
+                    <div class="contact-detail">
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Via Roma 15, Firenze (FI)</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <span>+39 055 123 4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <span>info@pasticceriagelsomino.it</span>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2881.084428789387!2d11.2532!3d43.7711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQ2JzE2LjAiTiAxM8KwMTUnMTEuNSJF!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Form d'invio richiesta / Ordine -->
+                <div class="info-box">
+                    <h3 class="info-title">Invia un Messaggio</h3>
+                    <form onsubmit="event.preventDefault(); alert('Grazie! Messaggio inviato con successo.');">
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Nome e Cognome</label>
+                            <input type="text" placeholder="Il tuo nome" required style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px;">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Telefono / WhatsApp</label>
+                            <input type="tel" placeholder="333 1234567" required style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px;">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; font-size: 14px; margin-bottom: 5px; font-weight: 600;">Messaggio o Richiesta Torta</label>
+                            <textarea rows="4" placeholder="Come possiamo aiutarti?" required style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; border: none; cursor: pointer;">Invia Richiesta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/390551234567?text=Ciao!%20Vorrei%20informazioni%20sulle%20vostre%20torte" target="_blank" class="whatsapp-float">
+        <span class="whatsapp-icon">💬</span>
+        <span>Contattaci su WhatsApp</span>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo font-heading">Pasticceria Gelsomino</div>
+            <p>© 2026 Pasticceria Gelsomino S.r.l. - Tutti i diritti riservati.</p>
+            <p style="margin-top: 8px; opacity: 0.7; font-size: 12px;">Via Roma 15, Firenze | P.IVA 01234567890</p>
+        </div>
+    </footer>
+
+</body>
+</html>
